@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Generator</title>
+</head>
+<body>
+
+    <div id="input"></div>
+    <div id="thing"></div>
+    
+    <script>
+        function prompter() {
+            while (true) {
+                var number = prompt("Give me a number");
+                if (isNaN(number)) {
+                    alert("Try Again!");
+                } else {
+                    return number;
+                }
+            }
+        }
+
+        var num = prompter();
+
+        var even;
+
+        if(num % 2 === 0) {
+            even = true;
+        }
+        else 
+        {
+            even = false;
+        }
+
+        document.getElementById("input").innerHTML = "Number Inputted: " + num + "<br> ";
+
+        function generator(num, even) {
+
+        var output = " ";
+        
+            if (even) {
+                for ( a = num; a > 0; a--) {
+                    for (let b = 0; b < a; b++) {
+                        output += a + " ";
+                }
+                output += "<br>";
+                }
+
+            } else {
+                
+                for ( a = num; a > 0; a--) {
+                    for (let b = 0; b < num; b++) {
+                        output += a + " ";
+                }
+                output += "<br>";
+                }
+                
+            }
+    
+            document.getElementById("thing").innerHTML = "<br>" + output;
+        }
+        
+        generator(num, even);
+
+    </script>
+</body>
+</html>
+
